@@ -16,7 +16,7 @@ echo label ...
 echo dedu ...
 cat ./data/news.title.label ./data/news.title.label.save | sort -n | uniq | tee ./data/news.title.label.save >/dev/null
 cat ./data/news.des.label ./data/news.des.label.save | sort -n | uniq | tee ./data/news.des.label.save >/dev/null
-cat ./data/news.title.origin ./data/news.title.origin.save | sort -n | uniq | tee ./data/news.title.origin.save >/dev/null
+cat ./data/news.title.ori ./data/news.title.origin.save | sort -n | uniq | tee ./data/news.title.origin.save >/dev/null
 cat ./data/news.url ./data/news.url.save | sort -n | uniq | tee ./data/new.url.save >/dev/null
 
 echo finish at (date)!

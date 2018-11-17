@@ -29,7 +29,7 @@ def replaceCharEntity(htmlstr):
                 'gt':'>','62':'>',
                 'amp':'&','38':'&',
                 'quot':'"','34':'"',}
-    
+
     re_charEntity=re.compile(r'&#?(?P<name>\w+);')
     sz=re_charEntity.search(htmlstr)
     while sz:
@@ -59,6 +59,7 @@ def recreatedoc( doc ):
     return " ".join(list[0:99])
 
 rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/14/news.xml'
+#rss_url = './a.xml'
 feeds = feedparser.parse(rss_url)
 
 #os.mkdir('./data')
