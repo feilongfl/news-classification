@@ -34,10 +34,8 @@ git commit -m (date)
 git push
 
 echo finish at (date)!
-la ./data/news.title.label.save
-wc ./data/news.title.label.save
-la ./data/news.des.label.save
-wc ./data/news.des.label.save
+la ./data/*.save
+wc ./data/*.save
 
 sleep 5m
 end
