@@ -6,13 +6,13 @@ set traindata /tmp/train.data
 set testdata /tmp/test.data
 set modeldir ./model/news.model
 
-set lineCount (wc -l $oridata | cut -d ' ' -f 1)
+cat $oridata | sort -n | uniq | shuf> $tempdata 
+
+set lineCount (wc -l $tempdata | cut -d ' ' -f 1)
 set traindatanum (expr 95 \* $lineCount / 100)
 set testDataNum (expr $lineCount - $traindatanum)
 
 echo get $lineCount data, $traindatanum for train, $testDataNum for test.
-
-cat $oridata > $tempdata 
 
 head -n $traindatanum $tempdata > $traindata 
 tail -n $testDataNum $tempdata > $testdata 
