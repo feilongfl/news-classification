@@ -34,12 +34,11 @@ function api(req, res){
     console.log(title)
     //pre-process text
     tag = []
-    for (i in titleTag.concat(textTag)){
-        if(textTag[i]){
-            if(textTag[i].tag != 'x' &&
-                textTag[i].tag != 'uj'){
-                tag.push(textTag[i].word)
-            }
+    tagall = titleTag.concat(textTag)
+    for (i in tagall){
+        if(tagall[i].tag != 'x' &&
+            tagall[i].tag != 'uj'){
+            tag.push(tagall[i].word)
         }
     }
     var tagText = tag.slice(0,99).join(' ');
