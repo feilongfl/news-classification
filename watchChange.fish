@@ -1,5 +1,4 @@
 #!/usr/bin/env fish
-
 #run rss get
 #
 #
@@ -19,9 +18,14 @@ cat ./data/news.des.label ./data/news.des.label.save | sort -n | uniq | tee ./da
 cat ./data/news.title.ori ./data/news.title.origin.save | sort -n | uniq | tee ./data/news.title.origin.save >/dev/null
 cat ./data/news.url ./data/news.url.save | sort -n | uniq | tee ./data/new.url.save >/dev/null
 
+git add ./data/*.save
+git commit -m (date)
+git push
+
 echo finish at (date)!
 la ./data/news.title.label.save
 wc ./data/news.title.label.save
 la ./data/news.des.label.save
 wc ./data/news.des.label.save
+
 
