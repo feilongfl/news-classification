@@ -1,4 +1,10 @@
 #!/usr/bin/env fish
+#
+
+eval (ssh-agent -c)
+ssh-add ~/.ssh/id_rsa
+
+while true
 #run rss get
 #
 #
@@ -28,4 +34,6 @@ wc ./data/news.title.label.save
 la ./data/news.des.label.save
 wc ./data/news.des.label.save
 
+sleep 5m
+end
 
