@@ -58,7 +58,8 @@ def recreatedoc( doc ):
 
     return " ".join(list[0:99])
 
-rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/14/news.xml'
+rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/98/news.xml'
+#rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/14/news.xml'
 #rss_url = './a.xml'
 feeds = feedparser.parse(rss_url)
 

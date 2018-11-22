@@ -18,6 +18,7 @@ echo label ...
 #dedup
 #
 #
+wget -O ./data/news.xml.save 'http://feilong-server.lan:23000/users/1/web_requests/98/news.xml'
 echo dedu ...
 cat ./data/news.title.label ./data/news.title.label.save | sort -n | uniq | tr '\t' ' ' | tee ./data/news.title.label.save.tmp >/dev/null
 cat ./data/news.des.label ./data/news.des.label.save | sort -n | uniq | tr '\t' ' ' | tee ./data/news.des.label.save.tmp >/dev/null
