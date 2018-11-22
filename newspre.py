@@ -48,15 +48,20 @@ def repalce(s,re_exp,repl_string):
 
 
 # feilong code
-def recreatedoc( doc ):
+def recreatedoc( doc , debug = False):
     seg_list = jieba.cut(doc)
     list = []
+    if debug:
+        print(doc)
+
     for word, flag in seg_list:
-#        print('%s %s' % (word, flag))
-        if flag != 'x':
+        if flag in ['n','vn','v','ns','nr','nt','j','nz','s','nrfg','b']:
             list.append(word)
 
-    return " ".join(list[0:99])
+    if debug:
+        print(",".join(list))
+
+    return " ".join(list[0:49])
 
 rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/98/news.xml'
 #rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/14/news.xml'
@@ -69,9 +74,11 @@ fileNewsTitlePre = open('./data/news.title.pre','a')
 fileNewsURL = open('./data/news.url','a')
 fileNewsDes = open('./data/news.des','a')
 
-for post in feeds.entries:
+feedscount = len(feeds.entries)
+for post,index in zip(feeds.entries, range(feedscount)):
+    print ("[%d/%d] JieBa" % (index, feedscount))
     fileNewsTitleOriginData = (post.title)
-    fileNewsTitlePreData = (recreatedoc(post.title))
+    fileNewsTitlePreData = (recreatedoc(post.title,debug=True))
     fileNewsURLData = (post.link)
     fileNewsDesData = (recreatedoc(removeXmlTag(post.description)))
     fileNewsTitleOrigin.write(fileNewsTitleOriginData + '\n')
