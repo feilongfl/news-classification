@@ -5,8 +5,10 @@ cp ./data/news.url $labelfile
 # label list
 set society __label__society
 set domestic __label__domestic
+#set domestic __label__国内
 set finance __label__finance
 set world __label__world
+#set world __label__国际
 set entertainment __label__entertainment
 set technology __label__technology
 set sport __label__sport
@@ -17,15 +19,15 @@ set health __label__health
 
 # url filter list
 cat $labelfile | \
-sed -r 's/https?\:\/\/www\.chinanews\.com\/sh\/.*/'$society'/g' | \
+#sed -r 's/https?\:\/\/www\.chinanews\.com\/sh\/.*/' $society'/g' | \
 sed -r 's/https?\:\/\/www\.chinanews\.com\/gn\/.*/'$domestic'/g' | \
 sed -r 's/https?\:\/\/www\.chinanews\.com\/gj\/.*/'$world'/g' | \
-sed -r 's/https?\:\/\/www\.chinanews\.com\/cj\/.*/'$finance'/g' | \
-sed -r 's/https?\:\/\/www\.chinanews\.com\/ty\/.*/'$sport'/g' | \
-sed -r 's/https?\:\/\/finance\.sina\.com\.cn\/.*/'$finance'/g' | \
+#sed -r 's/https?\:\/\/www\.chinanews\.com\/cj\/.*/'$finance'/g' | \
+#sed -r 's/https?\:\/\/www\.chinanews\.com\/ty\/.*/'$sport'/g' | \
+#sed -r 's/https?\:\/\/finance\.sina\.com\.cn\/.*/'$finance'/g' | \
 sed -r 's/https?\:\/\/news\.sina\.com\.cn\/w\/.*/'$world'/g' | \
-sed -r 's/https?\:\/\/ent\.sina\.com\.cn\/.*/'$entertainment'/g' | \
-sed -r 's/https?\:\/\/tech\.sina\.com\.cn\/.*/'$technology'/g' | \
+#sed -r 's/https?\:\/\/ent\.sina\.com\.cn\/.*/'$entertainment'/g' | \
+#sed -r 's/https?\:\/\/tech\.sina\.com\.cn\/.*/'$technology'/g' | \
 sed -r 's/https?\:\/\/www\.xinhuanet\.com\/local\/.*/'$domestic'/g' | \
 sed -r 's/https?\:\/\/www\.xinhuanet\.com\/world\/.*/'$world'/g' | \
 sed -r 's/https?\:\/\/www\.xinhuanet\.com\/tw\/.*/'$world'/g' | \

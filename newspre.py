@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import feedparser
-import jieba.posseg as jieba
+import jieba_fast.posseg as jieba
 import re
 import os
 
@@ -55,13 +55,13 @@ def recreatedoc( doc , debug = False):
         print(doc)
 
     for word, flag in seg_list:
-        if flag in ['n','vn','v','ns','nr','nt','j','nz','s','nrfg','b']:
+        if flag in ['n','vn','v','ns','nr','nt','j','nz','s','nrfg','b', 'nrt','l','i']:
             list.append(word)
 
     if debug:
         print(",".join(list))
 
-    return " ".join(list[0:49])
+    return " ".join(list[0:99])
 
 rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/98/news.xml'
 #rss_url = 'http://feilong-server.lan:23000/users/1/web_requests/14/news.xml'
